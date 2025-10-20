@@ -1,3 +1,3 @@
-data "aws_docdb_subnet_group" "main" {
+data "aws_db_subnet_group" "main" {
   name = "lncr-prd-data-subnet-group"
 }

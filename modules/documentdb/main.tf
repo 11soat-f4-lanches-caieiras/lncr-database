@@ -29,7 +29,7 @@ resource "aws_docdb_cluster" "main" {
   manage_master_user_password = true
   
   vpc_security_group_ids = [aws_security_group.documentdb.id]
-  db_subnet_group_name   = data.aws_docdb_subnet_group.main.name
+  db_subnet_group_name   = data.aws_db_subnet_group.main.name
   
   skip_final_snapshot = true
   
