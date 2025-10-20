@@ -1,8 +1,3 @@
-variable "db_name" {
-  description = "Nome do banco de dados"
-  type        = string
-}
-
 variable "db_username" {
   description = "Username do banco de dados"
   type        = string
@@ -14,13 +9,14 @@ variable "vpc_id" {
 }
 
 variable "instance_class" {
-  description = "Classe da instância RDS"
+  description = "Classe da instância DocumentDB"
   type        = string
 }
 
-variable "allocated_storage" {
-  description = "Storage alocado em GB"
+variable "instance_count" {
+  description = "Número de instâncias no cluster"
   type        = number
+  default     = 1
 }
 
 variable "environment" {

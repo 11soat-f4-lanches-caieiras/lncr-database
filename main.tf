@@ -1,12 +1,10 @@
-module "rds_postgresql" {
-  source = "./modules/rds-postegresql"
+module "documentdb" {
+  source = "./modules/documentdb"
 
-  db_name          = var.db_name
   db_username      = var.db_username
-
   vpc_id           = data.aws_vpc.main.id
   instance_class   = var.instance_class
-  allocated_storage = var.allocated_storage
+  instance_count   = var.instance_count
   environment      = var.environment
   prefix_name      = var.prefix_name
 }
