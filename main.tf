@@ -1,5 +1,5 @@
 module "documentdb" {
-  source = "./modules/documentdb"
+  source = "./modules/documentdb-customer"
 
   db_username      = var.db_username
   vpc_id           = data.aws_vpc.main.id
