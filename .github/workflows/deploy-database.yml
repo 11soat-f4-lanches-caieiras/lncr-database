@@ -22,6 +22,7 @@ jobs:
 
     - name: Terraform Init
       run: terraform init
+      working-directory: modules/documentdb-customer
 
     - name: Terraform Apply
       run: terraform apply --target module.documentdb -var-file="prd.tfvars" -auto-approve
