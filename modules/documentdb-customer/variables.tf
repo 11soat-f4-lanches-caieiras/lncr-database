@@ -3,6 +3,12 @@ variable "db_username" {
   type        = string
 }
 
+variable "db_password" {
+  description = "Password do banco de dados"
+  type        = string
+  sensitive   = true
+}
+
 variable "vpc_id" {
   description = "ID da VPC"
   type        = string

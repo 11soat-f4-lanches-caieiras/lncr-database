@@ -9,6 +9,20 @@ resource "aws_security_group" "documentdb" {
     cidr_blocks = ["10.1.0.0/16"]
   }
 
+  ingress {
+    from_port       = 27017
+    to_port         = 27017
+    protocol        = "tcp"
+    security_groups = [data.aws_security_group.vpn.id]
+  }
+
+  ingress {
+    from_port       = 27017
+    to_port         = 27017
+    protocol        = "tcp"
+    security_groups = [data.aws_security_group.eks_node.id]
+  }
+
   egress {
     from_port   = 0
     to_port     = 0
@@ -26,7 +40,7 @@ resource "aws_docdb_cluster" "main" {
   cluster_identifier      = "${var.prefix_name}-${var.environment}-documentdb"
   engine                  = "docdb"
   master_username         = var.db_username
-  manage_master_user_password = true
+  master_password         = var.db_password
   
   vpc_security_group_ids = [aws_security_group.documentdb.id]
   db_subnet_group_name   = data.aws_db_subnet_group.main.name
