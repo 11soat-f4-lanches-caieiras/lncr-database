@@ -1,4 +1,4 @@
-name: Deploy DocumentDB Database
+name: Deploy Customer Database
 
 env:
   TERRAFORM_VERSION: 1.5.7
