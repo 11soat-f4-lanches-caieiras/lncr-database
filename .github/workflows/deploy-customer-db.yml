@@ -8,7 +8,7 @@ on:
 
 jobs:
   deploy:
-    name: Deploy DocumentDB
+    name: Deploy Customer Database (DocumentDB)
     runs-on: codebuild-github-lncr-database-${{ github.run_id }}-${{ github.run_attempt }}
 
     steps:
