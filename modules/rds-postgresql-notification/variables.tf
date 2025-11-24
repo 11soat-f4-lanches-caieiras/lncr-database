@@ -33,7 +33,7 @@ variable "max_allocated_storage" {
 variable "engine_version" {
   description = "Versão do PostgreSQL"
   type        = string
-  default     = "15.4"
+  default     = "15"
 }
 
 variable "environment" {
