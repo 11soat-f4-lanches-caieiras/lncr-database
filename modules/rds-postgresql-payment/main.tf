@@ -1,6 +1,6 @@
 resource "aws_security_group" "rds_postgresql" {
   name_prefix = "${var.prefix_name}-${var.environment}-payment-rds"
-  vpc_id      = var.vpc_id
+  vpc_id      = data.aws_vpc.main.id
 
   ingress {
     from_port   = 5432

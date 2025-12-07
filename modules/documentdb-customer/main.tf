@@ -1,6 +1,6 @@
 resource "aws_security_group" "documentdb" {
   name_prefix = "${var.prefix_name}-${var.environment}-documentdb"
-  vpc_id      = var.vpc_id
+  vpc_id      = data.aws_vpc.main.id
 
   ingress {
     from_port   = 27017

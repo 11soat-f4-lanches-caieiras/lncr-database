@@ -8,11 +8,6 @@ variable "db_username" {
   type        = string
 }
 
-variable "vpc_id" {
-  description = "ID da VPC"
-  type        = string
-}
-
 variable "instance_class" {
   description = "Classe da instância RDS"
   type        = string

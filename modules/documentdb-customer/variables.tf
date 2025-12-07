@@ -9,11 +9,6 @@ variable "db_password" {
   sensitive   = true
 }
 
-variable "vpc_id" {
-  description = "ID da VPC"
-  type        = string
-}
-
 variable "instance_class" {
   description = "Classe da instância DocumentDB"
   type        = string
