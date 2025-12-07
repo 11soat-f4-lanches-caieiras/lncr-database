@@ -35,7 +35,7 @@ resource "aws_db_instance" "main" {
   
   db_name  = var.db_name
   username = var.db_username
-  manage_master_user_password = true
+  password = var.db_password
   
   vpc_security_group_ids = [aws_security_group.rds_postgresql.id]
   db_subnet_group_name   = data.aws_db_subnet_group.main.name

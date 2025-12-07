@@ -8,6 +8,12 @@ variable "db_username" {
   type        = string
 }
 
+variable "db_password" {
+  description = "Password do banco de dados"
+  type        = string
+  sensitive   = true
+}
+
 variable "instance_class" {
   description = "Classe da instância RDS"
   type        = string

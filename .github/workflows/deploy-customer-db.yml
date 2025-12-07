@@ -25,9 +25,9 @@ jobs:
       working-directory: modules/documentdb-customer
 
     - name: Terraform Plan
-      run: terraform plan -var="db_password=${{ vars.DOCUMENTDB_PASSWORD }}"
+      run: terraform plan -var="db_password=${{ secrets.DOCUMENTDB_PASSWORD }}"
       working-directory: modules/documentdb-customer
 
     - name: Terraform Apply
-      run: terraform apply -auto-approve -var="db_password=${{ vars.DOCUMENTDB_PASSWORD }}"
+      run: terraform apply -auto-approve -var="db_password=${{ secrets.DOCUMENTDB_PASSWORD }}"
       working-directory: modules/documentdb-customer

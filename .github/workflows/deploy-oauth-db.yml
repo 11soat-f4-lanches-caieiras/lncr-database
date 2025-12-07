@@ -24,6 +24,10 @@ jobs:
       run: terraform init
       working-directory: modules/rds-postgresql-oauth
 
+    - name: Terraform Plan
+      run: terraform plan -var="db_password=${{ secrets.RDS_PASSWORD }}"
+      working-directory: modules/rds-postgresql-oauth
+
     - name: Terraform Apply
-      run: terraform apply -var-file="terraform.tfvars" --auto-approve
+      run: terraform apply -auto-approve -var="db_password=${{ secrets.RDS_PASSWORD }}"
       working-directory: modules/rds-postgresql-oauth
