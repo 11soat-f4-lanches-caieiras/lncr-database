@@ -1,0 +1,33 @@
+name: Deploy Customer Database
+
+env:
+  TERRAFORM_VERSION: 1.5.7
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Deploy Customer Database (DocumentDB)
+    runs-on: codebuild-github-lncr-database-${{ github.run_id }}-${{ github.run_attempt }}
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup Terraform
+      uses: hashicorp/setup-terraform@v3
+      with:
+        terraform_version: ${{ env.TERRAFORM_VERSION }}
+
+    - name: Terraform Init
+      run: terraform init
+      working-directory: modules/documentdb-customer
+
+    - name: Terraform Plan
+      run: terraform plan -var="db_password=${{ secrets.DOCUMENTDB_PASSWORD }}"
+      working-directory: modules/documentdb-customer
+
+    - name: Terraform Apply
+      run: terraform apply -auto-approve -var="db_password=${{ secrets.DOCUMENTDB_PASSWORD }}"
+      working-directory: modules/documentdb-customer
